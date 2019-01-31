@@ -1,0 +1,19 @@
+<view class="load" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"></view>
+<view class="completeRate">
+  <text class="zhiShiLiuYi">志士六艺\n</text>
+  <text class="boYaJinDu">{{userInfo.nickName+"的博雅进度\n"}}</text>
+  <view class="jinDuCircleBox">
+    <canvas class="jinDu" canvas-id='jinDu'></canvas>
+    </view>
+  <text class="search">查询历史成绩></text>
+</view>
+<view class="classified">
+  <text>分类要求</text>
+</view>
+<view class="classBox">
+    <canvas class="classf" canvas-id='classf'></canvas>
+</view>
+<view class="specified">
+  <text>具体要求</text>
+</view>
+<view></view>

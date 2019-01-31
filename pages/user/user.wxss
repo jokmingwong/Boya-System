@@ -1,0 +1,57 @@
+.fuck{
+  font-size: 20px;
+}
+
+.completeRate{
+  text-align: center;
+}
+
+.zhiShiLiuYi{
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
+  margin-bottom: 3px;
+}
+
+.jinDuCircleBox{
+  width:300px;
+  height:200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.jinDu{
+  vertical-align: center;
+  width:300px;
+  height:200px;
+}
+
+.search{
+  color: #C5C5C5;
+}
+
+.classified{
+  width:300px;
+  margin-left: 10%;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.classBox{
+  width:88%;
+  height:90px;
+  margin: 0 auto;
+}
+
+.classf{
+  width: 100%;
+  height:90px;
+}
+
+.specified{
+  margin-top: 10px;
+  margin-left: 10%;
+  font-size: 14px;
+}
+

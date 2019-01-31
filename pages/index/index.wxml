@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="container" bindtap='changePage'>
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="logIn">点击以进入系统\n</text>
+    <text class="user-motto">{{motto+", "+userInfo.nickName}}</text>
+  </view>
+</view>
