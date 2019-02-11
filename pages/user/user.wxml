@@ -11,9 +11,15 @@
   <text>分类要求</text>
 </view>
 <view class="classBox">
-    <canvas class="classf" canvas-id='classf'></canvas>
-</view>
-<view class="specified">
-  <text>具体要求</text>
+<!--下面的percent值是假设的，等js写完需要将下面的20,40,60,80之类的改成服务器给的数据-->
+<text>基本素养</text>
+<progress percent="20" show-info stroke-width='14' color='#EB4537' aria-label ="test" active/>
+<text>形式政策</text>
+<progress percent="40" show-info stroke-width="14" color='#FAC230' active />
+<text>文化艺术</text>
+<progress percent="60" show-info stroke-width='14' color='#55AF7B' active/>
+<text>科技创新</text>
+<progress percent="80" show-info stroke-width='14' color='#4286F3' active />
+   <!-- <canvas class="classf" canvas-id='classf'></canvas>-->
 </view>
 <view></view>
