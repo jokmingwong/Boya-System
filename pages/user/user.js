@@ -39,7 +39,8 @@ Page({
   onReady: function () {//绘制界面
     // 页面渲染完成
     const ctx = wx.createCanvasContext('jinDu')
-    var score = 75//这里拿到接口传入完成率就行
+    /*接口: 数据给到这里 */
+    var score = 75
 
     //进度圈
     ctx.beginPath()
@@ -101,84 +102,7 @@ Page({
     ctx.fillText('完成率', 120, 140)
     
     ctx.draw()
-    ctx.closePath();
-
-    const ctx2 = wx.createCanvasContext('classf')
-    ctx2.setStrokeStyle('#F4F4F4')
-    ctx2.setLineWidth(4)
-    var width = wx.getSystemInfoSync().windowWidth;
-    //var screenHeight = wx.getSystemInfoSync().windowHeight;
-    var height = 10;
-    console.log(width)
-    var fromPoint = 0.04 * width;
-    console.log(fromPoint)
-    var disPoint = 0.29 * width;
-    console.log(disPoint)
-    var zihao = width > 330 ? 13 : 12;
-    if(zihao != 12){
-      zihao = width > 380 ? 14 : 13;
-    }
-    console.log(zihao);
-    //画打底线
-    var words = [['基本素养'],['形势政策'],['文化艺术'],['科技创新'],['社会实践'],['身体素质']];
-    for(var i=0;i<6;i++){
-      if(i == 3){
-        fromPoint = 0.04 * width;
-        disPoint = 0.29 * width;
-        height += width/10;
-      }
-      ctx2.moveTo(fromPoint, height);
-      ctx2.lineTo(disPoint, height);
-      ctx2.setFontSize(zihao);
-      ctx2.setFillStyle('#282828');
-      ctx2.fillText(words[i], fromPoint, height+20);
-      fromPoint += 0.27*width;
-      disPoint += 0.27*width;
-    }
-    ctx2.stroke();
-
-    ctx2.beginPath();
-    ctx2.setStrokeStyle('white');
-    ctx2.setLineWidth(6);
-    ctx2.moveTo(0.43 * width, 10);
-    ctx2.lineTo(0.44 * width, 10);
-    ctx2.moveTo(0.70 * width, 10);
-    ctx2.lineTo(0.71 * width, 10);
-    ctx2.moveTo(0.43 * width, 10 + width / 10);
-    ctx2.lineTo(0.44 * width, 10 + width / 10);
-    ctx2.stroke();
-    //画进度线
-    var classPercent = [[0.8],[0.5],[0.5],[0.5],[0.5],[0.7]];//这里给出六项的进度
-    var classPerfrom = 0.04 * width;
-    var classPerto = 0.29 * width;
-    height = 10;
-    ctx2.setStrokeStyle('#756ff7');
-    ctx2.setLineWidth(4);
-    for(var i=0;i<6;i++){
-      if (i == 3) {
-        classPerfrom = 0.04 * width;
-        classPerto = 0.29 * width;
-        height += width / 10;
-      }
-      ctx2.moveTo(classPerfrom, height);
-      ctx2.lineTo(classPerfrom + (classPerto - classPerfrom) * classPercent[i], height);
-      classPerfrom += 0.27*width;
-      classPerto += 0.27*width;
-    }
-    ctx2.stroke();
-    //间隔
-    ctx2.beginPath();
-    ctx2.setStrokeStyle('white');
-    ctx2.setLineWidth(6);
-    ctx2.moveTo(0.43 * width, 10);
-    ctx2.lineTo(0.445 * width, 10);
-    ctx2.moveTo(0.70 * width, 10);
-    ctx2.lineTo(0.715 * width, 10);
-    ctx2.moveTo(0.43 * width, 10 + width / 10);
-    ctx2.lineTo(0.445 * width, 10 + width / 10);
-    ctx2.stroke();
-    ctx2.draw();
-
+    ctx.closePath()
   },
 
   getUserInfo: function (e) {

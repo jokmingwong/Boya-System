@@ -3,7 +3,7 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/user/user",
-    "pages/start/start"
+    "pages/login/login"
   ],
   "window": {
     "backgroundTextStyle": "light",
