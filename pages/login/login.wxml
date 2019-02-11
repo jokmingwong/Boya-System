@@ -7,16 +7,16 @@
     <!--账号-->
     <view class="inputView">
       <image class="nameImage" src="../images/name.png"></image>
-      <label class="loginLab">认证账号</label>
-      <input class="inputText" bindinput="phoneInput" />
+      <label class="loginLab"></label>
+      <input class="inputText" placeholder='校园统一认证账号' bindinput="phoneInput" />
     </view>
     <view class="line"></view>
  
     <!--密码-->
     <view class="inputView">
       <image class="keyImage" src="../images/key.png"></image>
-      <label class="loginLab">认证密码</label>
-      <input class="inputText" password="true" bindinput="passwordInput" />
+      <label class="loginLab"></label>
+      <input class="inputText" placeholder='密码'  password="true" bindinput="passwordInput" />
     </view>
  
     <!--按钮-->

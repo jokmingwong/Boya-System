@@ -26,10 +26,22 @@ Page({
         icon: 'loading',
         duration: 2000
       })
-    } else {
+    }
+    // 需要识别是否是导员端口登陆 
+    else if (this.data.phone.length == 1){
+      wx.showToast({
+        title: '导员端登录成功',
+        icon: 'success',
+        duration: 2000
+      })
+      wx.navigateTo({
+        url: '../counselor/counselor',
+      })
+    }
+     else {
       // 这里修改成跳转的页面
       wx.showToast({
-        title: '登录成功',
+        title: '学生端登录成功',
         icon: 'success',
         duration: 2000
       })
