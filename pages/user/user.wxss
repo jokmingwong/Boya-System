@@ -41,9 +41,10 @@
 .classBox{
   width:88%;
   height:90px;
-  font-family: "consolas";
-  font-size: 14px;
+  font-family: "Microsoft YaHei";
+  font-size: 16px;
   margin: 0 auto;
+  margin-top: 3%;
 }
 
 .classf{
