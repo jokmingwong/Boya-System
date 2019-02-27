@@ -1,0 +1,11 @@
+/* pages/choose/choose.wxss */
+.other-button-hover {
+  background-color: blue;
+}
+
+.button_class{
+  margin-top:25%;
+  margin-left: 10%;
+  margin-right: 10%;
+  font-size: 21px;
+}

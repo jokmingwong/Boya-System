@@ -46,7 +46,7 @@ Page({
         duration: 2000
       })
       wx.navigateTo({
-        url: '../user/user',
+        url: '../choose/choose',
       })
     }
   }

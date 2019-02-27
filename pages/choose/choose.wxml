@@ -1,0 +1,36 @@
+<!--pages/choose/choose.wxml-->
+<button class='button_class'
+  type="default"
+  size="{{defaultSize}}"
+  loading="{{loading}}"
+  plain="{{plain}}"
+  disabled="{{disabled}}"
+  bindtap="goToPage1"
+  hover-class="other-button-hover"
+  >
+  查看进度
+</button>
+<button
+  class='button_class'
+  type="default"
+  size="{{defaultSize}}"
+  loading="{{loading}}"
+  plain="{{plain}}"
+  disabled="{{disabled}}"
+  bindtap="goToPage2"
+  hover-class="other-button-hover"
+>
+  上传图片
+</button>
+<button
+  class='button_class'
+  type="default"
+  size="{{defaultSize}}"
+  loading="{{loading}}"
+  plain="{{plain}}"
+  disabled="{{disabled}}"
+  bindtap="goToPage3"
+  hover-class="other-button-hover"
+>
+  博雅选课(暂未开通)
+</button>

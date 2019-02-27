@@ -4,7 +4,9 @@
     "pages/logs/logs",
     "pages/user/user",
     "pages/login/login",
-    "pages/counselor/counselor"
+    "pages/counselor/counselor",
+    "pages/choose/choose",
+    "pages/upload/upload"
   ],
   "window": {
     "backgroundTextStyle": "light",
