@@ -1,1 +1,5 @@
 /* pages/upload/upload.wxss */
+.button_class{
+  border: none;
+  padding: 0;
+}

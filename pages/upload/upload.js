@@ -1,66 +1,41 @@
-// pages/upload/upload.js
 Page({
-
   /**
-   * Page initial data
-   */
-  data: {
-
+  * 页面的初始数据
+  */
+  data: {　　//初始化为空
+    source: '',
+    plain:true,
   },
-
   /**
-   * Lifecycle function--Called when page load
+   * 上传截图
    */
-  onLoad: function (options) {
+  uploadimg: function () {
+    var that = this;
+    wx.chooseImage({ //从本地相册选择图片或使用相机拍照
+      count: 1, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        //console.log(res)
+        //前台显示
+        that.setData({
+          source: res.tempFilePaths
+        })
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        var tempFilePaths = res.tempFilePaths
+        wx.uploadFile({
+          url: 'http://www.website.com/home/api/uploadimg',
+          filePath: tempFilePaths[0],
+          name: 'file',
 
-  },
+          success: function (res) {
+            //打印
+            console.log(res.data)
+          }
+        })
 
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage: function () {
-
+      }
+    })
   }
-})
+  }
+  )

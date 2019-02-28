@@ -1,2 +1,5 @@
-<!--pages/upload/upload.wxml-->
-<text>上传页面</text>
+<text>上传截图</text>
+<view>
+<button bindtap="uploadimg" plain="{{plain}}" class='button_class'><image src="../images/add.png"></image></button>
+</view>
+<image src='{{source}}' style='width:600rpx; height:600rpx' />
