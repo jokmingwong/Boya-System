@@ -3,14 +3,16 @@ from django.db import models
 # Create your models here.
 
 
-class student(models.Model):
-    name = models.CharField(max_length=30)
-    student_id = models.IntegerField(max_length=8)
-    catalog = models.CharField()
-    photo = models.ImageField()
+class StudentInfo(models.Model):
+    student_name = models.CharField(max_length=30)
+    student_id = models.IntegerField()
 
-    xszc_need
-    xszc
+
+class BoyaInfo(models.Model):
+    category = models.CharField(max_length=20)
+    description = models.TextField()
+    incremental = models.IntegerField()
+    pic = models.ImageField(upload_to="pic_folder")
 
 
 
