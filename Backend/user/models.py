@@ -1,6 +1,12 @@
+import os
+
 from django.db import models
 
 # Create your models here.
+
+
+def get_image_path(student_id, category):
+    return os.path.join('pics',str(student_id), category)
 
 
 class StudentInfo(models.Model):
@@ -9,10 +15,18 @@ class StudentInfo(models.Model):
 
 
 class BoyaInfo(models.Model):
+    student_id = models.IntegerField()
     category = models.CharField(max_length=20)
     description = models.TextField()
     incremental = models.IntegerField()
-    pic = models.ImageField(upload_to="pic_folder")
+
+
+class BoyaPic(models.Model):
+    student_id = models.IntegerField()
+    category = models.CharField(max_length=20)
+    pic = models.ImageField(upload_to=get_image_path(student_id, category))
+
+
 
 
 

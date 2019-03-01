@@ -1,15 +1,32 @@
 import json
+import uuid
 
 from django.db.models import Sum
 from django.http import JsonResponse, HttpResponse
-from user.models import StudentInfo
-from user.models import BoyaInfo
+from user.models import StudentInfo, BoyaInfo, BoyaPic
 
 # from django.views.decorators.csrf import csrf_exempt
 # from django.shortcuts import render
 
 
-# Create your views here.
+# Create your views here
+
+MEDIA_SERVER = 'http://127.0.0.1:8000/media/'
+
+
+class ImageTool:
+    @staticmethod
+    def get_new_random_file_name(file_name):
+        find_type = False
+        for c in file_name:
+            if c == '.':
+                find_type = True
+        if find_type:
+            type = file_name.split('.')[-1]
+            return str(uuid.uuid1()) + '.' + type
+        else:
+            return str(uuid.uuid1())
+
 
 def home(request):
     if request.method == 'POST':
@@ -63,22 +80,42 @@ def home(request):
 
 
 def submit(request):
-    if request.is_ajax():
-        # 学生姓名
-        name = request.POST.get('name', '')
-        # 学生学号
-        student_id = request.POST.get('student_id', '')
-        # 提交项目的类别
-        category = request.POST.get('category', '')
-        # 具体描述
-        description = request.POST.get('description', '')
-        # 本次增量
-        incremental = request.POST.get('incremental', '')
-        # 对应照片
-        image = request.POST.get('photo', '')
+    if request.method == 'POST':
+        if request.is_ajax():
+            # 学生姓名
+            # name = request.POST.get('name', '')
+            # 学生学号
+            student_id = request.POST.get('student_id', '')
+            # 提交项目的类别
+            category = request.POST.get('category', '')
+            # 具体描述
+            description = request.POST.get('description', '')
+            # 本次增量
+            incremental = request.POST.get('incremental', '')
 
-        # 没有get到数据
-        if name == '' or student_id == '' or category == '' or description == '' or incremental == '' or image == '':
-            return JsonResponse({'message': 'Please fill all blank'})
+            # 没有get到数据
+            if student_id == '' or category == '' or description == '' or incremental == '':
+                return JsonResponse({'message': 'Please fill all blank'})
 
-        q = BoyaInfo.objects.create(student_id=student_id, category=category, description=description, incremental=incremental, image=image)
+            q = BoyaInfo(student_id=student_id, category=category, description=description, incremental=incremental)
+            q.save()
+
+            source = request.FILES.get('image')
+            if source:
+                source.name = ImageTool.get_new_random_file_name(source.name)
+                image = BoyaPic(
+                    student_id=student_id,
+                    category=category,
+                    pic=source
+                )
+                image.save()
+                return HttpResponse(json.dumps({
+                    'success': True,
+                    'path': MEDIA_SERVER + image.pic.url
+                }))
+
+            else:
+                return HttpResponse(json.dumps({
+                    'success': False,
+                    'error_code': 100
+                }))
