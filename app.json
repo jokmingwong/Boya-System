@@ -6,7 +6,8 @@
     "pages/login/login",
     "pages/counselor/counselor",
     "pages/choose/choose",
-    "pages/upload/upload"
+    "pages/upload/upload",
+    "pages/chooseClass/chooseClass"
   ],
   "window": {
     "backgroundTextStyle": "light",

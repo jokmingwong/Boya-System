@@ -15,7 +15,7 @@ Page({
 
   },
 
-  goToPage1:function(){
+  goToPage1: function () {
     wx.navigateTo({
       url: '../user/user',
     })
@@ -28,7 +28,7 @@ Page({
 
   goToPage3() {
     wx.navigateTo({
-      url: '../counselor/counselor',
+      url: '../chooseClass/chooseClass',
     })
   },
 
@@ -78,6 +78,6 @@ Page({
    * Called when user click on the top right corner to share
    */
   onShareAppMessage: function () {
-    
+
   }
 })
