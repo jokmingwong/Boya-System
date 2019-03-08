@@ -1,5 +1,6 @@
 <!--pages/choose/choose.wxml-->
-<button class='button_class'
+<image class='img_css'src='../images/check.png'></image>
+<button  class='button_class'
   type="default"
   size="{{defaultSize}}"
   loading="{{loading}}"
@@ -10,6 +11,7 @@
   >
   查看进度
 </button>
+<image class='img_css' src='../images/upload.png' ></image>
 <button
   class='button_class'
   type="default"
@@ -22,6 +24,7 @@
 >
   上传图片
 </button>
+<image class='img_css' src='../images/chooseClass.png'></image>
 <button
   class='button_class'
   type="default"
@@ -32,5 +35,5 @@
   bindtap="goToPage3"
   hover-class="other-button-hover"
 >
-  博雅选课(暂未开通)
+  博雅选课
 </button>

@@ -5,6 +5,14 @@ Page({
   data: {　　//初始化为空
     source: '',
     plain:true,
+    items: [
+      { name: 'valunteer', value: '志愿截图' },
+      { name: 'run', value: '跑步APP截图', checked: 'true' },
+      { name: 'art', value: '文艺参观图片' },
+    ]
+  },
+  radioChange(e) {
+    console.log('radio发生change事件，携带value值为：', e.detail.value)
   },
   /**
    * 上传截图

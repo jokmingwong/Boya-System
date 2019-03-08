@@ -1,2 +1,27 @@
-<!--pages/counselor/counselor.wxml-->
-<text>emm 让我研究下如何导入数据在html上</text>
+<view class="table">
+  <view class="tr bg-header">
+    <view class="th">课程名称</view>
+    <view class='th'>时间</view>
+    <view class="th">选课人数</view>
+  </view>
+  <block wx:for="{{listData}}" wx:key="{{code}}">
+    <view class="tr bg-items" wx:if="{{index %2==0}}">
+      <view class="td">{{item.name}}</view>
+      <view class="td">{{item.time}}</view>
+      <view class="td">{{item.population}}</view>
+    </view>
+    <view class="tr" wx:else>
+      <view class="td">{{item.name}}</view>
+      <view class="td">{{item.time}}</view>
+      <view class="td">{{item.population}}</view>
+    </view>
+  </block>
+</view>
+
+<view class="round">
+  <image style='width:20px;height:20px;' src='{{src_add}}' id="addround">
+  </image>
+  <image class="minus_round" style='width: 20px;height:20px;' src="{{src_minus}}" id="minus_one_round" bindtap='minusround'>
+  </image>
+
+</view>

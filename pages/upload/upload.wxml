@@ -1,5 +1,21 @@
-<text>上传截图</text>
+<text>上传内容</text>
 <view>
-<button bindtap="uploadimg" plain="{{plain}}" class='button_class'><image src="../images/add.png"></image></button>
+
+<radio-group class="radio-group" bindchange="radioChange">
+  <label class="radio" wx:for="{{items}}">
+    <radio value="{{item.name}}" checked="{{item.checked}}" />
+    {{item.value}}
+    <br></br>
+  </label>
+</radio-group>
+
+
+<input type="text" name="run_length" value="输入跑步里程"></input>
+<br></br>
+<text>上传截图</text>
+<view class="border">
+<image src="../images/add.png" bindtap="uploadimg" class="button_class"></image>
 </view>
 <image src='{{source}}' style='width:600rpx; height:600rpx' />
+<image src='{{source}}' style='width:600rpx; height:600rpx' />
+</view>

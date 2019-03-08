@@ -4,8 +4,15 @@
 }
 
 .button_class{
-  margin-top:25%;
+  margin-top:5%;
   margin-left: 10%;
   margin-right: 10%;
   font-size: 21px;
+}
+
+.img_css{
+  width: 105rpx;
+  height: 80rpx;
+  margin-left: 45%;
+  margin-top:10% 
 }

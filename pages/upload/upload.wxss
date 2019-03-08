@@ -1,5 +1,21 @@
+wxss
 /* pages/upload/upload.wxss */
+.border {
+border: 2px dashed #CACaCa;
+background-color: #EAEAEA;
+width: 80%;
+margin-top: 50rpx;
+margin-left: 10%;
+height: 300rpx;
+opacity: 0.8;
+}
+
 .button_class{
-  border: none;
-  padding: 0;
+border: none;
+padding: 0;
+width: 100rpx;
+height: 100rpx;
+margin-top: 100rpx;
+margin-left: 42%;
+opacity: 0.3;
 }
