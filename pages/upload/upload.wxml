@@ -10,12 +10,26 @@
 </radio-group>
 
 
-<input type="text" name="run_length" value="输入跑步里程"></input>
-<br></br>
-<text>上传截图</text>
-<view class="border">
-<image src="../images/add.png" bindtap="uploadimg" class="button_class"></image>
+<input type="text" name="run_length" value="输入跑步里程:"></input>
+
+<button class='button_class' 
+    type="default" size="default" bindtap="chooseImage" 
+>
+    添加图片
+    </button>
+
+<view class="question-images">
+  <block wx:for="{{images}}" wx:key="*this">
+    <view class="q-image-wrap">
+      <!-- 图片缩略图  -->
+      <image class="q-image" src="{{item}}" mode="aspectFill" data-idx="{{index}}" bindtap="handleImagePreview"></image>
+      <!-- 移除图片的按钮  -->
+      <view class="q-image-remover" data-idx="{{index}}" bindtap="removeImage">删除</view>
+    </view>
+  </block>
 </view>
-<image src='{{source}}' style='width:600rpx; height:600rpx' />
-<image src='{{source}}' style='width:600rpx; height:600rpx' />
+
+  <!-- 提交表单按钮  -->
+  <button class="button_class" type="primary" size='default' bindtap="submitForm" hover-class='press_button_class'>确认上传</button>
+
 </view>
