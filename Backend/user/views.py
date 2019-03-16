@@ -44,45 +44,62 @@ def home(request):
 
         # 以下为虚拟数值，model完善后再进行改动
 
+        xszcsum=0
+        whyssum=0
+        kjcxsum=0
+        totalsum=0
+        xszc_need = 2
+        whys_need = 2
+        kjcx_need = 2
+        total_need = xszc_need + whys_need + kjcx_need
+
         try:
         # 形式政策
-            xszc = BoyaInfo.objects.filter(student_id=17373503, category='xszc').values('category').annotate(
+            xszc = BoyaInfo.objects.filter(student_id=student_id, category='xszc').values('category').annotate(
             xszcsum=Sum('incremental'))
-            xszc_need = 2
+            xszcsum=xszc[0]['xszcsum']
+        except Exception as e:
+            xszcsum=0
+
+
 
         # 文化艺术
+        try:
             whys = BoyaInfo.objects.filter(student_id=student_id, category='whys').values('category').annotate(
             whyssum=Sum('incremental'))
-            whys_need = 2
+            whyssum = whys[0]['whyssum']
+        except Exception as e:
+            whyssum = 0
 
         # 科技创新
+        try:
             kjcx = BoyaInfo.objects.filter(student_id=student_id, category='kjcx').values('category').annotate(
             kjcxsum=Sum('incremental'))
-            kjcx_need = 2
+            kjcxsum = kjcx[0]['kjcxsum']
+        except Exception as e:
+            kjcxsum = 0
 
         # 已经完成的博雅进度 通过学号筛查出所有提交记录，然后将他们的增量求和
-            total = BoyaInfo.objects.filter(student_id=student_id).values('student_id').annotate(
-            totalsum=Sum('incremental'))
+
+        totalsum = kjcxsum + whyssum + xszcsum
         # 博雅需要的总进度 通过学号判断，目前写死
-            total_need = xszc_need + whys_need + kjcx_need
+
 
         # 需要返回的信息列表
-            info_list = [({'total': total[0]['totalsum'], 'total_need': total_need}),
-                         ({'xszc': xszc[0]['xszcsum'], 'xszc_need': xszc_need}),
-                         ({'whys': whys[0]['whyssum'], 'whys_need': whys_need}),
-                         ({'kjcx': kjcx[0]['kjcxsum'], 'kjcx_need': kjcx_need})]
+        info_list = [({'total': totalsum, 'total_need': total_need}),
+                         ({'xszc': xszcsum, 'xszc_need': xszc_need}),
+                         ({'whys': whyssum, 'whys_need': whys_need}),
+                         ({'kjcx': kjcxsum, 'kjcx_need': kjcx_need})]
 
         # 没注意看这是要干嘛，反正照着写了
-            data = {
+        data = {
                 "code": '200',
                 "msg": '成功',
                 "data": info_list,
             }
 
-            return HttpResponse(json.dumps(data, ensure_ascii=False), content_type="application/json", charset='utf-8',
+        return HttpResponse(json.dumps(data, ensure_ascii=False), content_type="application/json", charset='utf-8',
                             reason='success')
-        except Exception as e:
-            return HttpResponse('Cannot get data')
 
     else:
         return HttpResponse('It is not a POST request')
