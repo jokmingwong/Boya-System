@@ -16,6 +16,8 @@ json提供数据交换
 ## 后端接口
 查询接口：/user/api/get_all_info
 
+需要的信息包括：student_id
+
 ---
 
 表单信息接口：/user/api/submit_form
