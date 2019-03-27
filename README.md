@@ -28,6 +28,32 @@ json提供数据交换
 
 ```
 
+```
+{
+    "code": "200",
+    "msg": "成功",
+    "data": [
+        {
+            "art": 0,
+            "art_need": 2
+        },
+        {
+            "volunteer": 0,
+            "volunteer_need": 8
+        },
+        {
+            "running": 0,
+            "running_need": 30
+        },
+        {
+            "swimming": 0,
+            "swimming_need": 5
+        }
+    ]
+}
+
+```
+
 ---
 
 表单信息接口：/user/api/submit_form
