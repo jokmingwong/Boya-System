@@ -26,7 +26,17 @@ json提供数据交换
                      ({'running': runningsum, 'running_need': running_need}),
                      ({'swimming': swimmingsum, 'swimming_need': swimming_need})]
 
+        data = {
+            "code": '200',
+            "msg": '成功',
+            "data": info_list,
+        }
+
+        return HttpResponse(json.dumps(data, ensure_ascii=False), content_type="application/json", charset='utf-8',
+                            reason='success')
 ```
+
+例：
 
 ```
 {
