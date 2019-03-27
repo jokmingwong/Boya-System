@@ -18,6 +18,16 @@ json提供数据交换
 
 需要的信息包括：student_id
 
+返回的信息：
+
+```python
+        info_list = [({'art': artsum, 'art_need': art_need}),
+                     ({'volunteer': volunteersum, 'volunteer_need': volunteer_need}),
+                     ({'running': runningsum, 'running_need': running_need}),
+                     ({'swimming': swimmingsum, 'swimming_need': swimming_need})]
+
+```
+
 ---
 
 表单信息接口：/user/api/submit_form
