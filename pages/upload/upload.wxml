@@ -1,16 +1,24 @@
-<text>上传内容</text>
 <view>
 
+<view class="title">点击选择上传类别</view>
+<picker bindchange="bindPickerChange" class='section' value="{{index}}" range="{{array}}">
+  <view class="picker">
+    {{array[index]}}
+  </view>
+</picker>
+
+<!-->
 <radio-group class="radio-group" bindchange="radioChange">
   <label class="radio" wx:for="{{items}}">
+  <br>
     <radio value="{{item.name}}" checked="{{item.checked}}" />
     {{item.value}}
-    <br></br>
+  </br>
   </label>
 </radio-group>
-
-
-<input type="text" name="run_length" value="输入跑步里程:"></input>
+<-->
+<br></br>
+<input id="run_len" type="submitForm"  focus='true' class="input_type" placeholder='输入对应时长(h),里程(km)或参观的(次数)' name="run_length" ></input>
 
 <button class='button_class' 
     type="default" size="default" bindtap="chooseImage" 
