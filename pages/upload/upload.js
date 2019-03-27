@@ -3,11 +3,26 @@ Page({
   data: {　　//初始化为空
     source: '',
     plain: true,
-    items: [
-      { name: 'valunteer', value: '志愿截图' },
-      { name: 'run', value: '跑步APP截图', checked: 'true' },
-      { name: 'art', value: '文艺参观图片' },
-    ]
+    array:['志愿时长截图','跑步APP截图','游泳APP截图','文艺参观图片'],
+    objectArray: [
+      {
+        id: 0,
+        name: '志愿时长截图'
+      },
+      {
+        id: 1,
+        name: '跑步APP截图'
+      },
+      {
+        id: 2,
+        name: '游泳APP截图'
+      },
+      {
+        id: 3,
+        name: '文艺参观图片'
+      }
+    ],
+    index:0,
   },
 
   chooseImage(e) {
@@ -27,8 +42,19 @@ Page({
     $init(this)
   },
 
-  radioChange(e) {
-    console.log('radio发生change事件，携带value值为：', e.detail.value)
+  display(id){
+    var target=document.getElementById(id);
+    if(target.style.display=="none"){
+      target.style.display="inline";
+    }
+  },
+
+  bindPickerChange(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
+    
   },
 
   submitForm(e) {
@@ -86,4 +112,4 @@ Page({
 })
   
       /*key和value*/
-    
+ 
